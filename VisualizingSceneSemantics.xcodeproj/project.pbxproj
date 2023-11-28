@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0C26373623E065EB0017A846 /* ViewController+CoachingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C26373523E065EA0017A846 /* ViewController+CoachingOverlay.swift */; };
+		2774094A2B16596B004DDBC1 /* Experience.reality in Resources */ = {isa = PBXBuildFile; fileRef = 277409492B16596B004DDBC1 /* Experience.reality */; };
+		2796D7552B1679430048C7EB /* Experience1.reality in Resources */ = {isa = PBXBuildFile; fileRef = 2796D7542B1679430048C7EB /* Experience1.reality */; };
+		2796D7572B1682590048C7EB /* Experience2.reality in Resources */ = {isa = PBXBuildFile; fileRef = 2796D7562B1682590048C7EB /* Experience2.reality */; };
 		717F7FEF23F054DC00208378 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 717F7FEE23F054DC00208378 /* README.md */; };
 		E136398023EB064300668585 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E136397F23EB064300668585 /* RoundedButton.swift */; };
 		E1635E1623D5BDFD0031A7D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1635E1523D5BDFD0031A7D8 /* AppDelegate.swift */; };
@@ -20,7 +23,10 @@
 
 /* Begin PBXFileReference section */
 		0C26373523E065EA0017A846 /* ViewController+CoachingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+CoachingOverlay.swift"; sourceTree = "<group>"; };
-		28811F3E4EB27EC6196B6F5B /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
+		277409492B16596B004DDBC1 /* Experience.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = Experience.reality; sourceTree = "<group>"; };
+		2796D7542B1679430048C7EB /* Experience1.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = Experience1.reality; sourceTree = "<group>"; };
+		2796D7562B1682590048C7EB /* Experience2.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = Experience2.reality; sourceTree = "<group>"; };
+		28811F3E4EB27EC6196B6F5B /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		717F7FEE23F054DC00208378 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E136397F23EB064300668585 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		E1635E1223D5BDFD0031A7D8 /* Scene Semantics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scene Semantics.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,7 +37,7 @@
 		E1635E2123D5BDFE0031A7D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1635E2323D5BDFE0031A7D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1635E2D23D736E70031A7D8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		EAFE649F2E6D58090EBA9357 /* SampleCode.xcconfig */ = {isa = PBXFileReference; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
+		EAFE649F2E6D58090EBA9357 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +56,6 @@
 			children = (
 				28811F3E4EB27EC6196B6F5B /* LICENSE.txt */,
 			);
-			name = LICENSE;
 			path = LICENSE;
 			sourceTree = "<group>";
 		};
@@ -76,6 +81,9 @@
 		E1635E1423D5BDFD0031A7D8 /* VisualizingSceneSemantics */ = {
 			isa = PBXGroup;
 			children = (
+				2796D7562B1682590048C7EB /* Experience2.reality */,
+				2796D7542B1679430048C7EB /* Experience1.reality */,
+				277409492B16596B004DDBC1 /* Experience.reality */,
 				E1635E1523D5BDFD0031A7D8 /* AppDelegate.swift */,
 				E1635E1723D5BDFD0031A7D8 /* ViewController.swift */,
 				0C26373523E065EA0017A846 /* ViewController+CoachingOverlay.swift */,
@@ -157,8 +165,11 @@
 			files = (
 				E1635E2223D5BDFE0031A7D8 /* LaunchScreen.storyboard in Resources */,
 				E1635E1F23D5BDFE0031A7D8 /* Assets.xcassets in Resources */,
+				2796D7552B1679430048C7EB /* Experience1.reality in Resources */,
 				717F7FEF23F054DC00208378 /* README.md in Resources */,
+				2796D7572B1682590048C7EB /* Experience2.reality in Resources */,
 				E1635E1D23D5BDFD0031A7D8 /* Main.storyboard in Resources */,
+				2774094A2B16596B004DDBC1 /* Experience.reality in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,16 +332,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = J8NNW3S38F;
 				INFOPLIST_FILE = "$(SRCROOT)/VisualizingSceneSemantics/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.VisualizingSceneSemantics${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kindredgroup.BasicApp;
 				PRODUCT_NAME = "Scene Semantics";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development com.kindredgroup.BasicApp";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -343,16 +356,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = J8NNW3S38F;
 				INFOPLIST_FILE = "$(SRCROOT)/VisualizingSceneSemantics/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.VisualizingSceneSemantics${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kindredgroup.BasicApp;
 				PRODUCT_NAME = "Scene Semantics";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development com.kindredgroup.BasicApp";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

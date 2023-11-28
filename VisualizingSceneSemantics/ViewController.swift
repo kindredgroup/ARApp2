@@ -7,6 +7,10 @@ Main view controller for the AR experience.
 
 import RealityKit
 import ARKit
+import Combine
+
+var collisionSubscribing:Cancellable? // Keeping the reference is required to listen for events
+
 
 class ViewController: UIViewController, ARSessionDelegate {
     
@@ -14,6 +18,8 @@ class ViewController: UIViewController, ARSessionDelegate {
     @IBOutlet weak var hideMeshButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var planeDetectionButton: UIButton!
+    
+    var selected: Int = 0
     
     let coachingOverlay = ARCoachingOverlayView()
     
@@ -53,6 +59,20 @@ class ViewController: UIViewController, ARSessionDelegate {
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         arView.addGestureRecognizer(tapRecognizer)
+        
+        let tapRecognizer2 = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+        arView.addGestureRecognizer(tapRecognizer2)
+        
+        collisionSubscribing = arView.scene.subscribe(to: CollisionEvents.Began.self) { event in
+            print("collision ! \(event.entityA.name) with \(event.entityB.name)")
+            print(event.entityA.name)
+            let entityA = event.entityA as? ModelEntity
+            let entityB = event.entityB as? ModelEntity
+             // Collision entity
+            if (event.entityA.name=="ball" && event.entityB.name=="Ground Plane"){
+                print("BOOOM!")
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -69,6 +89,12 @@ class ViewController: UIViewController, ARSessionDelegate {
         return true
     }
     
+    @objc
+    func handleLongPress(_ sender: UITapGestureRecognizer) {
+        let tapLocation = sender.location(in: arView)
+        print("LONG PRESS")
+    }
+    
     /// Places virtual-text of the classification at the touch-location's real-world intersection with a mesh.
     /// Note - because classification of the tapped-mesh is retrieved asynchronously, we visualize the intersection
     /// point immediately to give instant visual feedback of the tap.
@@ -81,9 +107,19 @@ class ViewController: UIViewController, ARSessionDelegate {
             // ...
             // 2. Visualize the intersection point of the ray with the real-world surface.
             let resultAnchor = AnchorEntity(world: result.worldTransform)
-            resultAnchor.addChild(sphere(radius: 0.01, color: .lightGray))
-            arView.scene.addAnchor(resultAnchor, removeAfter: 3)
+            resultAnchor.addChild(sphere(radius: 0, color: .red))
+            if (selected == 0) {
+                resultAnchor.addChild(createModel())
+            }
+            if (selected == 1) {
+                resultAnchor.addChild(createModel1())
+            }
+            if (selected == 2) {
+                resultAnchor.addChild(createModel2())
+            }
+            arView.scene.addAnchor(resultAnchor, removeAfter: 60)
 
+            /*
             // 3. Try to get a classification near the tap location.
             //    Classifications are available per face (in the geometric sense, not human faces).
             nearbyFaceWithClassification(to: result.worldTransform.position) { (centerOfFace, classification) in
@@ -118,12 +154,18 @@ class ViewController: UIViewController, ARSessionDelegate {
                     }
                 }
             }
+            */
         }
     }
     
     @IBAction func resetButtonPressed(_ sender: Any) {
         if let configuration = arView.session.configuration {
             arView.session.run(configuration, options: .resetSceneReconstruction)
+            loadModels()
+            selected += 1
+            if (selected>2) {
+                selected = 0
+            }
         }
     }
     
@@ -132,6 +174,7 @@ class ViewController: UIViewController, ARSessionDelegate {
         if isShowingMesh {
             arView.debugOptions.remove(.showSceneUnderstanding)
             button.setTitle("Show Mesh", for: [])
+            
         } else {
             arView.debugOptions.insert(.showSceneUnderstanding)
             button.setTitle("Hide Mesh", for: [])
@@ -236,10 +279,65 @@ class ViewController: UIViewController, ARSessionDelegate {
         return model
     }
     
-    func sphere(radius: Float, color: UIColor) -> ModelEntity {
+    func sphere(radius: Float, color: UIColor) -> Entity {
         let sphere = ModelEntity(mesh: .generateSphere(radius: radius), materials: [SimpleMaterial(color: color, isMetallic: false)])
-        // Move sphere up by half its diameter so that it does not intersect with the mesh
         sphere.position.y = radius
+        // Move sphere up by half its diameter so that it does not intersect with the mesh
         return sphere
     }
+    
+    func createModel() -> Entity {
+        var e:Entity = Entity()
+        if let x = try? Entity.load(named: "Experience.reality") {
+            e = x
+        }
+        e.name = "object1"
+        return e
+    }
+    
+    func createModel1() -> Entity {
+        var e:Entity = Entity()
+        if let x = try? Entity.load(named: "Experience1.reality") {
+            e = x
+        }
+        e.name = "object2"
+        return e
+    }
+    
+    func createModel2() -> Entity {
+        var e:Entity = Entity()
+        if let x = try? Entity.load(named: "Experience2.reality") {
+            e = x
+        }
+        e.name = "object3"
+        return e
+    }
+    
+    func addGlobe(radius: Float, color: UIColor, x:Float, y:Float, z:Float) {
+        let anchorEntity = AnchorEntity(world: [x,y,z])
+        let mesh = MeshResource.generateSphere(radius: radius)
+        let material = SimpleMaterial(color: color, isMetallic: true)
+        let shape = ShapeResource.generateSphere(radius: radius)
+        let spherePhysicsMaterial = PhysicsMaterialResource.generate(friction: 0.055, restitution: 0.85)
+        let sphere = ModelEntity(mesh: mesh, materials: [material], collisionShape:shape, mass: 0.5)
+        let kinematics: PhysicsBodyComponent = .init(massProperties: .default, material: spherePhysicsMaterial, mode: .dynamic)
+        sphere.components.set(kinematics)
+        sphere.name="ball"
+        sphere.setParent(anchorEntity)
+        let m = createModel1()
+        //m.setParent(anchorEntity)
+        arView.scene.addAnchor(anchorEntity)
+        sphere.transform.translation.x = x
+        sphere.transform.translation.y = y
+        sphere.transform.translation.z = z
+        print("Added sphere")
+    }
+    
+    func loadModels() {
+        let anchorEntity = AnchorEntity(world: [0,0,0])
+        addGlobe(radius:0.2, color: .blue, x:-0.3,y:0.2,z:-2)
+        addGlobe(radius:0.1, color: .green, x:0,y:0.2,z:-2)
+        addGlobe(radius:0.1, color: .yellow, x:0.3,y:0.2,z:-2)
+    }
+
 }
