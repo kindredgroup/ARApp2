@@ -74,7 +74,7 @@ class ViewController: UIViewController, ARSessionDelegate, URLSessionDownloadDel
             }
         }
         
-        let url = URL(string:"https://github.com/kindredgroup/ARApp2/raw/master/VisualizingSceneSemantics/Experience.reality")!
+        let url = URL(string:"https://github.com/kindredgroup/ARApp2/raw/master/VisualizingSceneSemantics/Notepad.reality")!
         let downloadSession = URLSession(configuration: URLSession.shared.configuration, delegate: self, delegateQueue: nil)
         let downloadTask = downloadSession.downloadTask(with: url)
         downloadTask.resume()
@@ -356,7 +356,7 @@ class ViewController: UIViewController, ARSessionDelegate, URLSessionDownloadDel
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         
-        print("Download finished: \(location)")        
+        print("Download finished: \(location)")
         // Create The Filename
         let fileURL = getDocumentsDirectory().appendingPathComponent("ExperienceDownload.reality")
 
