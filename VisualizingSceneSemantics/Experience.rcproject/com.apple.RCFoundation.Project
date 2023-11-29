@@ -978,21 +978,94 @@
               "title" : "Scene",
               "viewTransform" : {
                 "cameraTransform" : [
-                  0.9661933,
-                  -7.482429e-09,
-                  0.25781894,
+                  0.99999076,
+                  -7.491357e-09,
+                  -0.004300776,
                   0,
-                  0.12647288,
-                  0.87141347,
-                  -0.47396532,
+                  0.0005046506,
+                  0.99309206,
+                  0.117336765,
                   0,
-                  -0.2246669,
-                  0.49054918,
-                  0.8419539,
+                  0.004271073,
+                  -0.11733789,
+                  0.9930828,
                   0,
-                  -0.0075421333,
-                  0.6922084,
-                  1.3469293,
+                  0.09668439,
+                  0.20053974,
+                  1.1962456,
+                  1
+                ],
+                "sceneTransform" : [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          ],
+          "__version" : 5
+        },
+        {
+          "__content" : [
+            {
+              "arAnchorSpecification" : {
+                "alignment" : "horizontal",
+                "name" : "surface"
+              },
+              "behaviors" : [
+
+              ],
+              "gravity" : [
+                0,
+                -9.8,
+                0
+              ],
+              "identifier" : "C4AFF591-0345-474C-8723-FD1F29B033DE",
+              "material" : "concrete",
+              "overrides" : {
+                "factory" : null,
+                "runtimeAttributes" : [
+                  [
+                    "isAccessibilityEnabled",
+                    {
+                      "typeName" : "Bool",
+                      "value" : false
+                    }
+                  ]
+                ]
+              },
+              "physicsMode" : "grid",
+              "title" : "Scene 1",
+              "viewTransform" : {
+                "cameraTransform" : [
+                  0.9999907,
+                  -7.0207884e-09,
+                  -0.0043007797,
+                  0,
+                  -0.002051468,
+                  0.8789029,
+                  -0.47699612,
+                  0,
+                  0.0037799713,
+                  0.47700053,
+                  0.8788948,
+                  0,
+                  0.12645346,
+                  0.75488,
+                  1.301361,
                   1
                 ],
                 "sceneTransform" : [

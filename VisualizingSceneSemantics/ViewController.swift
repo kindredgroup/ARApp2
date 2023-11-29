@@ -109,12 +109,11 @@ class ViewController: UIViewController, ARSessionDelegate, URLSessionDownloadDel
     /// point immediately to give instant visual feedback of the tap.
     @objc
     func handleTap(_ sender: UITapGestureRecognizer) {
-        // 1. Perform a ray cast against the mesh.
+        // Perform a ray cast against the mesh.
         // Note: Ray-cast option ".estimatedPlane" with alignment ".any" also takes the mesh into account.
         let tapLocation = sender.location(in: arView)
         if let result = arView.raycast(from: tapLocation, allowing: .estimatedPlane, alignment: .any).first {
-            // ...
-            // 2. Visualize the intersection point of the ray with the real-world surface.
+            // Visualize the intersection point of the ray with the real-world surface.
             let resultAnchor = AnchorEntity(world: result.worldTransform)
             resultAnchor.addChild(sphere(radius: 0, color: .red))
             if (selected == 0) {
@@ -122,57 +121,26 @@ class ViewController: UIViewController, ARSessionDelegate, URLSessionDownloadDel
             }
             if (selected == 1) {
                 resultAnchor.addChild(createModel1())
+                resultAnchor.addChild(createModel3(text:"ON BLACK"))
             }
             if (selected == 2) {
                 resultAnchor.addChild(createModel2())
             }
-            arView.scene.addAnchor(resultAnchor, removeAfter: 60)
-
-            /*
-            // 3. Try to get a classification near the tap location.
-            //    Classifications are available per face (in the geometric sense, not human faces).
-            nearbyFaceWithClassification(to: result.worldTransform.position) { (centerOfFace, classification) in
-                // ...
-                DispatchQueue.main.async {
-                    // 4. Compute a position for the text which is near the result location, but offset 10 cm
-                    // towards the camera (along the ray) to minimize unintentional occlusions of the text by the mesh.
-                    let rayDirection = normalize(result.worldTransform.position - self.arView.cameraTransform.translation)
-                    let textPositionInWorldCoordinates = result.worldTransform.position - (rayDirection * 0.1)
-                    
-                    // 5. Create a 3D text to visualize the classification result.
-                    let textEntity = self.model(for: classification)
-
-                    // 6. Scale the text depending on the distance, such that it always appears with
-                    //    the same size on screen.
-                    let raycastDistance = distance(result.worldTransform.position, self.arView.cameraTransform.translation)
-                    textEntity.scale = .one * raycastDistance
-
-                    // 7. Place the text, facing the camera.
-                    var resultWithCameraOrientation = self.arView.cameraTransform
-                    resultWithCameraOrientation.translation = textPositionInWorldCoordinates
-                    let textAnchor = AnchorEntity(world: resultWithCameraOrientation.matrix)
-                    textAnchor.addChild(textEntity)
-                    self.arView.scene.addAnchor(textAnchor, removeAfter: 3)
-
-                    // 8. Visualize the center of the face (if any was found) for three seconds.
-                    //    It is possible that this is nil, e.g. if there was no face close enough to the tap location.
-                    if let centerOfFace = centerOfFace {
-                        let faceAnchor = AnchorEntity(world: centerOfFace)
-                        faceAnchor.addChild(self.sphere(radius: 0.01, color: classification.color))
-                        self.arView.scene.addAnchor(faceAnchor, removeAfter: 3)
-                    }
-                }
+            if (selected == 3) {
+                resultAnchor.addChild(createModel3(text:"KINDRED LOGO"))
             }
-            */
+            if (selected == 4) {
+                loadModels()
+            }
+            arView.scene.addAnchor(resultAnchor, removeAfter: 60)
         }
     }
     
     @IBAction func resetButtonPressed(_ sender: Any) {
         if let configuration = arView.session.configuration {
             arView.session.run(configuration, options: .resetSceneReconstruction)
-            loadModels()
             selected += 1
-            if (selected>2) {
+            if (selected > 4) {
                 selected = 0
             }
         }
@@ -313,11 +281,14 @@ class ViewController: UIViewController, ARSessionDelegate, URLSessionDownloadDel
     }
     
     func createModel1() -> Entity {
-        var e:Entity = Entity()
-        if let x = try? Entity.load(named: "Experience1.reality") {
-            e = x
-        }
-        e.name = "object2"
+        let mesh = MeshResource.generatePlane(width: 2, depth: 1)
+        let material = SimpleMaterial(color: .init(red: 0.2, green: 0.2, blue: 0.2, alpha: 1), isMetallic: true)
+        let shape = ShapeResource.generateSphere(radius: 0.1)
+        let e = ModelEntity(mesh: mesh, materials: [material], collisionShape:shape, mass: 0.5)
+        let p = PhysicsMaterialResource.generate(friction: 0.055, restitution: 0.85)
+        let kinematics: PhysicsBodyComponent = .init(massProperties: .default, material: p, mode: .static)
+        e.components.set(kinematics)
+        e.name = "plane"
         return e
     }
     
@@ -327,6 +298,21 @@ class ViewController: UIViewController, ARSessionDelegate, URLSessionDownloadDel
             e = x
         }
         e.name = "object3"
+        return e
+    }
+    
+    func createModel3(text:String) -> Entity {
+        let lineHeight: CGFloat = 0.2
+        let font = MeshResource.Font.systemFont(ofSize: lineHeight)
+        let textMesh = MeshResource.generateText(text, extrusionDepth: Float(lineHeight * 0.1), font: font)
+        let textMaterial = SimpleMaterial(color: .white, isMetallic: true)
+        let e = ModelEntity(mesh: textMesh, materials: [textMaterial])
+        let radians = -90.0 * Float.pi / 180.0
+        e.transform.rotation *= simd_quatf(angle: radians, axis: SIMD3<Float>(1,0,0))
+        let p = PhysicsMaterialResource.generate(friction: 0.055, restitution: 0.85)
+        let kinematics: PhysicsBodyComponent = .init(massProperties: .default, material: p, mode: .static)
+        e.components.set(kinematics)
+        e.name="text"
         return e
     }
     
