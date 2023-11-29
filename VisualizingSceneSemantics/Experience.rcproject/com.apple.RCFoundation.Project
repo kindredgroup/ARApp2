@@ -22,50 +22,33 @@
               "overrides" : {
                 "children" : {
                   "4A213441-135C-450E-8EF8-1A4EAB267C1D" : null,
-                  "7F5F1ADC-E5E4-4EF5-A5B5-FC43B071FFA5" : null,
-                  "25F6105C-675E-40CB-A1E9-1617E5F9CE20" : null,
-                  "632E476F-1E55-4E30-9723-1C51DD2E8B89" : null,
-                  "08025B39-867E-4ECB-ADE2-1093A885661F" : {
+                  "4AD0D6E3-A01B-4180-ABD3-7E131AC3CF97" : {
                     "overrides" : {
                       "arguments" : [
                         [
-                          "frame",
+                          "doubleSided",
                           {
-                            "typeName" : "Double",
-                            "value" : 0.8341746170711859
-                          }
-                        ],
-                        [
-                          "frameWidth",
-                          {
-                            "typeName" : "String",
-                            "value" : "small"
+                            "typeName" : "Bool",
+                            "value" : true
                           }
                         ],
                         [
                           "image",
                           {
                             "typeName" : "String",
-                            "value" : "image:a63257ed6355f19a1d4eb79bf6182df3\/Untitled-1%20(1).png"
+                            "value" : ""
                           }
                         ],
                         [
-                          "matte",
+                          "maxDimension",
                           {
                             "typeName" : "Double",
-                            "value" : 0.05757778969957078
-                          }
-                        ],
-                        [
-                          "styles",
-                          {
-                            "typeName" : "String",
-                            "value" : "Outer Curved"
+                            "value" : 0.148
                           }
                         ]
                       ],
                       "factory" : {
-                        "identifier" : "com.apple.rc.af.CoreAssetFactories.PictureFrameAssetFactory",
+                        "identifier" : "com.apple.rc.af.CoreAssetFactories.PosterAssetFactory",
                         "version" : "1.0"
                       },
                       "runtimeAttributes" : [
@@ -73,32 +56,36 @@
                           "RuntimeIdentifier",
                           {
                             "typeName" : "UUID",
-                            "value" : "9677809A-86E3-48A5-91D1-DAC06175A940"
+                            "value" : "79CB309F-B143-4BFB-B8EE-0DCFA7A74421"
                           }
                         ]
                       ]
                     },
                     "transform" : {
                       "matrix" : [
-                        1,
+                        4.817054,
                         0,
                         0,
                         0,
                         0,
-                        1,
+                        4.817054,
                         0,
                         0,
                         0,
                         0,
-                        1,
+                        4.817054,
                         0,
                         0,
-                        0.010561943,
+                        0.00014801118,
                         0,
                         1
                       ]
                     }
                   },
+                  "7F5F1ADC-E5E4-4EF5-A5B5-FC43B071FFA5" : null,
+                  "25F6105C-675E-40CB-A1E9-1617E5F9CE20" : null,
+                  "632E476F-1E55-4E30-9723-1C51DD2E8B89" : null,
+                  "08025B39-867E-4ECB-ADE2-1093A885661F" : null,
                   "A3B7B3CC-C24E-4229-904B-E18DB8B91F5D" : null,
                   "AD5C8BFA-FCA0-4530-8797-62910B258D9A" : null,
                   "B91C7CA3-4AB1-4253-9A84-07383168A8A8" : null
@@ -742,7 +729,8 @@
                       ]
                     }
                   },
-                  "96F25BEE-B31C-4D8F-9D7D-1B0804B5628A" : null
+                  "96F25BEE-B31C-4D8F-9D7D-1B0804B5628A" : null,
+                  "B83808B6-6917-41B2-85F0-CBD9943C662B" : null
                 },
                 "factory" : null,
                 "runtimeAttributes" : [
@@ -759,21 +747,21 @@
               "title" : "Balloon",
               "viewTransform" : {
                 "cameraTransform" : [
-                  0.9996837,
-                  -7.0939494e-09,
-                  -0.025149804,
+                  0.9983631,
+                  5.833627e-09,
+                  -0.05719537,
                   0,
-                  -0.011996443,
-                  0.87890345,
-                  -0.47684887,
+                  -0.023269417,
+                  0.913499,
+                  -0.40617493,
                   0,
-                  0.022104252,
-                  0.47699973,
-                  0.87862545,
+                  0.052247908,
+                  0.4068409,
+                  0.9120037,
                   0,
-                  0.36441392,
-                  0.46718568,
-                  0.86243457,
+                  0.22624193,
+                  0.48729697,
+                  0.9004718,
                   1
                 ],
                 "sceneTransform" : [

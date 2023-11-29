@@ -12,12 +12,12 @@ import Combine
 var collisionSubscribing:Cancellable? // Keeping the reference is required to listen for events
 
 
-class ViewController: UIViewController, ARSessionDelegate {
-    
+class ViewController: UIViewController, ARSessionDelegate, URLSessionDownloadDelegate {
     @IBOutlet var arView: ARView!
     @IBOutlet weak var hideMeshButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var planeDetectionButton: UIButton!
+    var downloadedModel: Entity = Entity()
     
     var selected: Int = 0
     
@@ -72,6 +72,15 @@ class ViewController: UIViewController, ARSessionDelegate {
             if (event.entityA.name=="ball" && event.entityB.name=="Ground Plane"){
                 print("BOOOM!")
             }
+        }
+        
+        let url = URL(string:"https://github.com/kindredgroup/ARApp2/raw/master/VisualizingSceneSemantics/Experience.reality")!
+        let downloadSession = URLSession(configuration: URLSession.shared.configuration, delegate: self, delegateQueue: nil)
+        let downloadTask = downloadSession.downloadTask(with: url)
+        downloadTask.resume()
+        
+        if let x = try? Entity.load(named: "Experience1.reality") {
+            downloadedModel = x
         }
     }
     
@@ -288,9 +297,11 @@ class ViewController: UIViewController, ARSessionDelegate {
     
     func createModel() -> Entity {
         var e:Entity = Entity()
-        if let x = try? Entity.load(named: "Experience.reality") {
+        e = downloadedModel
+        if let x = try? Entity.load(named: "ExperienceDownload.reality") {
             e = x
         }
+        print("MODEL")
         e.name = "object1"
         return e
     }
@@ -334,10 +345,48 @@ class ViewController: UIViewController, ARSessionDelegate {
     }
     
     func loadModels() {
+        // ** TODO get and process JSON
         let anchorEntity = AnchorEntity(world: [0,0,0])
         addGlobe(radius:0.2, color: .blue, x:-0.3,y:0.2,z:-2)
         addGlobe(radius:0.1, color: .green, x:0,y:0.2,z:-2)
         addGlobe(radius:0.1, color: .yellow, x:0.3,y:0.2,z:-2)
     }
+    
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        // Create The Filename
+        let fileURL = getDocumentsDirectory().appendingPathComponent("ExperienceDownload.reality")
+
+        // Copy It To The Documents Directory
+        do {
+            if FileManager.default.fileExists(atPath: fileURL.path) {
+                // delete file
+                do {
+                    try FileManager.default.removeItem(atPath: fileURL.path)
+                } catch {
+                    print("Could not delete file, probably read-only filesystem")
+                }
+            }
+            try FileManager.default.copyItem(at: location, to: fileURL)
+
+            print("MODEL Successfuly Saved File \(fileURL)")
+
+            // Load The Model
+            
+
+        } catch {
+            print("MODEL Error Saving: \(error)")
+        }
+    }
+
+}
+
+/// Returns The Documents Directory
+///
+/// - Returns: URL
+func getDocumentsDirectory() -> URL {
+
+let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+let documentsDirectory = paths[0]
+return documentsDirectory
 
 }
