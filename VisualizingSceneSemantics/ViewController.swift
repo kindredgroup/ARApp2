@@ -73,9 +73,8 @@ class ViewController: UIViewController, ARSessionDelegate, URLSessionDownloadDel
                 print("BOOOM!")
             }
         }
-        
 
-        let url = URL(string:"https://github.com/kindredgroup/ARApp2/raw/master/VisualizingSceneSemantics/Fruitmachine.reality")!
+        let url = URL(string:"https://github.com/kindredgroup/ARApp2/raw/master/VisualizingSceneSemantics/Screens.reality")!
         let config = URLSessionConfiguration.default
         config.requestCachePolicy = .reloadIgnoringLocalCacheData
         config.urlCache = nil

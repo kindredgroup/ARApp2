@@ -1,22 +1,27 @@
 [
   {
     "displayName" : "Untitled-1 (1).png",
-    "libraryIdentifier" : "a63257ed6355f19a1d4eb79bf6182df3",
+    "format" : "image",
+    "libraryIdentifier" : "a63257ed6355f19a1d4eb79bf6182df3"
+  },
+  {
+    "libraryIdentifier" : "86392c2ff5f60044477f1e66d0d5938e",
+    "displayName" : "Untitled-1 (7).png",
     "format" : "image"
   },
   {
-    "format" : "image",
-    "displayName" : "Untitled-1 (7).png",
-    "libraryIdentifier" : "86392c2ff5f60044477f1e66d0d5938e"
-  },
-  {
+    "libraryIdentifier" : "781edcf0cb72f9cc3c9b3e52be00d3c8",
     "format" : "model",
-    "displayName" : "fruitmachine.usdz",
-    "libraryIdentifier" : "781edcf0cb72f9cc3c9b3e52be00d3c8"
+    "displayName" : "fruitmachine.usdz"
   },
   {
-    "libraryIdentifier" : "ac983d9315b93cc7de14965c318c3719",
     "displayName" : "Low_Poly_Slot_Machine.usdz",
-    "format" : "model"
+    "format" : "model",
+    "libraryIdentifier" : "ac983d9315b93cc7de14965c318c3719"
+  },
+  {
+    "displayName" : "Sci-Fi_Command_Panel.usdz",
+    "format" : "model",
+    "libraryIdentifier" : "468e637f43070675b0c4bdf96af4a873"
   }
 ]
