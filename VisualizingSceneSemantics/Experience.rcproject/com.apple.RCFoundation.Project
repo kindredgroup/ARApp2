@@ -137,7 +137,60 @@
                   "A3B7B3CC-C24E-4229-904B-E18DB8B91F5D" : null,
                   "AD5C8BFA-FCA0-4530-8797-62910B258D9A" : null,
                   "B91C7CA3-4AB1-4253-9A84-07383168A8A8" : null,
-                  "D91D48C4-EBF9-4FCD-BD8D-B3746A49E194" : null
+                  "D91D48C4-EBF9-4FCD-BD8D-B3746A49E194" : null,
+                  "FDBEB564-A8FF-42BB-89D0-B020C84E73D2" : {
+                    "overrides" : {
+                      "arguments" : [
+                        [
+                          "material",
+                          {
+                            "typeName" : "String",
+                            "value" : "standard"
+                          }
+                        ],
+                        [
+                          "type",
+                          {
+                            "typeName" : "String",
+                            "value" : "cone"
+                          }
+                        ]
+                      ],
+                      "factory" : {
+                        "identifier" : "com.apple.rc.af.CoreAssetFactories.PrimitiveShapeAssetFactory",
+                        "version" : "1.0"
+                      },
+                      "runtimeAttributes" : [
+                        [
+                          "RuntimeIdentifier",
+                          {
+                            "typeName" : "UUID",
+                            "value" : "7119A95B-8F70-4AC3-9491-BA3045DF2ECA"
+                          }
+                        ]
+                      ]
+                    },
+                    "transform" : {
+                      "matrix" : [
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        -0.16263822,
+                        0,
+                        0,
+                        1
+                      ]
+                    }
+                  }
                 },
                 "factory" : null,
                 "runtimeAttributes" : [
@@ -154,21 +207,21 @@
               "title" : "Picture1",
               "viewTransform" : {
                 "cameraTransform" : [
-                  0.9996269,
-                  1.8316236e-10,
-                  -0.027316028,
+                  0.98787785,
+                  -2.0857945e-08,
+                  -0.15523347,
                   0,
-                  -0.027273912,
-                  0.055510115,
-                  -0.9980855,
+                  -0.06715461,
+                  0.9015841,
+                  -0.42735985,
                   0,
-                  0.0015163134,
-                  0.99845815,
-                  0.05548934,
+                  0.13995603,
+                  0.43260399,
+                  0.8906548,
                   0,
-                  0.034531947,
-                  1.0271262,
-                  0.06052965,
+                  0.08774407,
+                  0.45957083,
+                  0.8500268,
                   1
                 ],
                 "sceneTransform" : [
