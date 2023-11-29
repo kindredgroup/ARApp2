@@ -25,76 +25,114 @@
                   "4AD0D6E3-A01B-4180-ABD3-7E131AC3CF97" : null,
                   "7F5F1ADC-E5E4-4EF5-A5B5-FC43B071FFA5" : null,
                   "25F6105C-675E-40CB-A1E9-1617E5F9CE20" : null,
-                  "632E476F-1E55-4E30-9723-1C51DD2E8B89" : null,
-                  "659C6E5B-DFF8-410D-B8CC-2EB01CA48D64" : {
+                  "70A56DA9-E68C-492E-8598-FEC2CB47046D" : {
                     "overrides" : {
-                      "arguments" : [
-                        [
-                          "item",
-                          {
-                            "typeName" : "String",
-                            "value" : "Notepad"
-                          }
-                        ],
-                        [
-                          "style",
-                          {
-                            "typeName" : "String",
-                            "value" : "Stylized"
-                          }
-                        ]
-                      ],
                       "children" : {
-                        "item" : {
+                        "USDScene" : {
                           "overrides" : {
-                            "factory" : null,
+                            "arguments" : [
+                              [
+                                "includeSceneScaling",
+                                {
+                                  "typeName" : "Bool",
+                                  "value" : false
+                                }
+                              ],
+                              [
+                                "subpath",
+                                {
+                                  "typeName" : "String",
+                                  "value" : ""
+                                }
+                              ],
+                              [
+                                "url",
+                                {
+                                  "typeName" : "String",
+                                  "value" : "model:781edcf0cb72f9cc3c9b3e52be00d3c8\/fruitmachine.usdz"
+                                }
+                              ],
+                              [
+                                "withDescendants",
+                                {
+                                  "typeName" : "Bool",
+                                  "value" : true
+                                }
+                              ]
+                            ],
+                            "factory" : {
+                              "identifier" : "com.apple.af.FileImportAssetFactory",
+                              "version" : "0.0"
+                            },
                             "runtimeAttributes" : [
                               [
                                 "RuntimeIdentifier",
                                 {
                                   "typeName" : "UUID",
-                                  "value" : "EB507CB9-3E33-40C4-830C-46B27CBB02BF"
+                                  "value" : "D4A3BE0A-87E5-49EE-98C4-FA592CC56DB5"
                                 }
                               ]
+                            ]
+                          },
+                          "transform" : {
+                            "matrix" : [
+                              1,
+                              0,
+                              0,
+                              0,
+                              0,
+                              1,
+                              0,
+                              0,
+                              0,
+                              0,
+                              1,
+                              0,
+                              0,
+                              0,
+                              0,
+                              1
                             ]
                           }
                         }
                       },
                       "factory" : {
-                        "identifier" : "com.apple.rc.af.Notepad.dcc9a6f5-091b-4ce8-8d13-2533477b4eec",
-                        "version" : "1.0"
+                        "identifier" : "com.apple.af.Group",
+                        "version" : "0.0"
                       },
                       "runtimeAttributes" : [
                         [
                           "RuntimeIdentifier",
                           {
                             "typeName" : "UUID",
-                            "value" : "DF47D93A-0D43-4123-8A71-70F41B175A88"
+                            "value" : "16EE475B-ABB6-40E7-AFAF-3FB4F7767C4D"
                           }
                         ]
                       ]
                     },
                     "transform" : {
                       "matrix" : [
-                        0.9999999,
-                        5.9304448e-08,
-                        5.9603884e-08,
+                        1.268805e-08,
+                        0.9999998,
+                        3.4425306e-14,
                         0,
-                        5.930444e-08,
-                        0.005036552,
-                        -0.99998724,
+                        0.9999998,
+                        -1.268805e-08,
+                        -8.6625136e-07,
                         0,
-                        -5.960389e-08,
-                        0.99998724,
-                        0.005036552,
+                        -8.662513e-07,
+                        3.4425303e-14,
+                        -0.99999976,
                         0,
                         0,
                         0,
-                        0.17820603,
+                        0.16788137,
                         1
                       ]
                     }
                   },
+                  "632E476F-1E55-4E30-9723-1C51DD2E8B89" : null,
+                  "659C6E5B-DFF8-410D-B8CC-2EB01CA48D64" : null,
                   "08025B39-867E-4ECB-ADE2-1093A885661F" : null,
                   "A3B7B3CC-C24E-4229-904B-E18DB8B91F5D" : null,
                   "AD5C8BFA-FCA0-4530-8797-62910B258D9A" : null,
@@ -116,21 +154,21 @@
               "title" : "Picture1",
               "viewTransform" : {
                 "cameraTransform" : [
-                  0.9973376,
-                  -2.6477438e-09,
-                  0.0729232,
+                  0.9999971,
+                  -5.6293314e-10,
+                  -0.0024243002,
                   0,
-                  0.023705518,
-                  0.9456882,
-                  -0.3242096,
+                  -0.0024228268,
+                  0.034899555,
+                  -0.9993879,
                   0,
-                  -0.068962604,
-                  0.32507515,
-                  0.94317037,
+                  8.458038e-05,
+                  0.9993908,
+                  0.034899406,
                   0,
-                  0.090534285,
-                  0.39223075,
-                  1.1542495,
+                  0.29105318,
+                  1.2389909,
+                  -0.005059839,
                   1
                 ],
                 "sceneTransform" : [
