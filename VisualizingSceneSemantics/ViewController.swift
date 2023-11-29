@@ -74,7 +74,7 @@ class ViewController: UIViewController, ARSessionDelegate, URLSessionDownloadDel
             }
         }
         
-        let url = URL(string:"https://github.com/kindredgroup/ARApp2/raw/master/VisualizingSceneSemantics/Notepad.reality")!
+        let url = URL(string:"https://github.com/kindredgroup/ARApp2/raw/master/VisualizingSceneSemantics/Fruitmachine.reality")!
         let downloadSession = URLSession(configuration: .ephemeral, delegate: self, delegateQueue: nil)
         let downloadTask = downloadSession.downloadTask(with: url)
         downloadTask.resume()
