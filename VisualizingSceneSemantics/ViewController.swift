@@ -78,10 +78,6 @@ class ViewController: UIViewController, ARSessionDelegate, URLSessionDownloadDel
         let downloadSession = URLSession(configuration: URLSession.shared.configuration, delegate: self, delegateQueue: nil)
         let downloadTask = downloadSession.downloadTask(with: url)
         downloadTask.resume()
-        
-        if let x = try? Entity.load(named: "Experience1.reality") {
-            downloadedModel = x
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -297,11 +293,17 @@ class ViewController: UIViewController, ARSessionDelegate, URLSessionDownloadDel
     
     func createModel() -> Entity {
         var e:Entity = Entity()
-        e = downloadedModel
-        if let x = try? Entity.load(named: "ExperienceDownload.reality") {
-            e = x
+        let url = getDocumentsDirectory().appendingPathComponent("ExperienceDownload.reality")
+        print("MODEL path = \(url)")
+        do {
+            let model = try Entity.load(contentsOf: url)
+            print("MODEL loaded.")
+            e = model
+        } catch {
+            print(error)
+            print("MODEL Fail loading entity.")
         }
-        print("MODEL")
+
         e.name = "object1"
         return e
     }
@@ -353,6 +355,8 @@ class ViewController: UIViewController, ARSessionDelegate, URLSessionDownloadDel
     }
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        
+        print("Download finished: \(location)")        
         // Create The Filename
         let fileURL = getDocumentsDirectory().appendingPathComponent("ExperienceDownload.reality")
 
@@ -362,8 +366,9 @@ class ViewController: UIViewController, ARSessionDelegate, URLSessionDownloadDel
                 // delete file
                 do {
                     try FileManager.default.removeItem(atPath: fileURL.path)
+                    print("MODEL deleted file")
                 } catch {
-                    print("Could not delete file, probably read-only filesystem")
+                    print("MODEL Could not delete file, probably read-only filesystem")
                 }
             }
             try FileManager.default.copyItem(at: location, to: fileURL)
