@@ -22,33 +22,50 @@
               "overrides" : {
                 "children" : {
                   "4A213441-135C-450E-8EF8-1A4EAB267C1D" : null,
-                  "4AD0D6E3-A01B-4180-ABD3-7E131AC3CF97" : {
+                  "4AD0D6E3-A01B-4180-ABD3-7E131AC3CF97" : null,
+                  "7F5F1ADC-E5E4-4EF5-A5B5-FC43B071FFA5" : null,
+                  "25F6105C-675E-40CB-A1E9-1617E5F9CE20" : null,
+                  "632E476F-1E55-4E30-9723-1C51DD2E8B89" : null,
+                  "08025B39-867E-4ECB-ADE2-1093A885661F" : null,
+                  "A3B7B3CC-C24E-4229-904B-E18DB8B91F5D" : null,
+                  "AD5C8BFA-FCA0-4530-8797-62910B258D9A" : null,
+                  "B91C7CA3-4AB1-4253-9A84-07383168A8A8" : null,
+                  "D91D48C4-EBF9-4FCD-BD8D-B3746A49E194" : {
                     "overrides" : {
                       "arguments" : [
                         [
-                          "doubleSided",
-                          {
-                            "typeName" : "Bool",
-                            "value" : true
-                          }
-                        ],
-                        [
-                          "image",
+                          "item",
                           {
                             "typeName" : "String",
-                            "value" : ""
+                            "value" : "Drum Kit"
                           }
                         ],
                         [
-                          "maxDimension",
+                          "style",
                           {
-                            "typeName" : "Double",
-                            "value" : 0.148
+                            "typeName" : "String",
+                            "value" : "Stylized"
                           }
                         ]
                       ],
+                      "children" : {
+                        "item" : {
+                          "overrides" : {
+                            "factory" : null,
+                            "runtimeAttributes" : [
+                              [
+                                "RuntimeIdentifier",
+                                {
+                                  "typeName" : "UUID",
+                                  "value" : "1845C161-06A7-4D5C-924B-39C16C5E187D"
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      },
                       "factory" : {
-                        "identifier" : "com.apple.rc.af.CoreAssetFactories.PosterAssetFactory",
+                        "identifier" : "com.apple.rc.af.DrumKit.34073786-6811-4fe2-ad62-923f6d7c7012",
                         "version" : "1.0"
                       },
                       "runtimeAttributes" : [
@@ -56,39 +73,32 @@
                           "RuntimeIdentifier",
                           {
                             "typeName" : "UUID",
-                            "value" : "79CB309F-B143-4BFB-B8EE-0DCFA7A74421"
+                            "value" : "B7C3D9A1-40B9-4AE3-A9D3-959C4A935E13"
                           }
                         ]
                       ]
                     },
                     "transform" : {
                       "matrix" : [
-                        4.817054,
+                        1,
                         0,
                         0,
                         0,
                         0,
-                        4.817054,
+                        1,
                         0,
                         0,
                         0,
                         0,
-                        4.817054,
+                        1,
                         0,
                         0,
-                        0.00014801118,
+                        0,
                         0,
                         1
                       ]
                     }
-                  },
-                  "7F5F1ADC-E5E4-4EF5-A5B5-FC43B071FFA5" : null,
-                  "25F6105C-675E-40CB-A1E9-1617E5F9CE20" : null,
-                  "632E476F-1E55-4E30-9723-1C51DD2E8B89" : null,
-                  "08025B39-867E-4ECB-ADE2-1093A885661F" : null,
-                  "A3B7B3CC-C24E-4229-904B-E18DB8B91F5D" : null,
-                  "AD5C8BFA-FCA0-4530-8797-62910B258D9A" : null,
-                  "B91C7CA3-4AB1-4253-9A84-07383168A8A8" : null
+                  }
                 },
                 "factory" : null,
                 "runtimeAttributes" : [
@@ -105,21 +115,21 @@
               "title" : "Picture1",
               "viewTransform" : {
                 "cameraTransform" : [
-                  0.9996837,
-                  -3.3430938e-09,
-                  -0.025149805,
+                  0.9973376,
+                  -2.6477438e-09,
+                  0.0729232,
                   0,
-                  -0.02513448,
-                  0.03489968,
-                  -0.99907476,
+                  0.023705518,
+                  0.9456882,
+                  -0.3242096,
                   0,
-                  0.0008777231,
-                  0.99939084,
-                  0.034888577,
+                  -0.068962604,
+                  0.32507515,
+                  0.94317037,
                   0,
-                  0.17591052,
-                  1.220352,
-                  0.05527007,
+                  0.090534285,
+                  0.39223075,
+                  1.1542495,
                   1
                 ],
                 "sceneTransform" : [
