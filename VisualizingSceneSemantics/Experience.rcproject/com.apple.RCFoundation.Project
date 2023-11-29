@@ -26,18 +26,14 @@
                   "7F5F1ADC-E5E4-4EF5-A5B5-FC43B071FFA5" : null,
                   "25F6105C-675E-40CB-A1E9-1617E5F9CE20" : null,
                   "632E476F-1E55-4E30-9723-1C51DD2E8B89" : null,
-                  "08025B39-867E-4ECB-ADE2-1093A885661F" : null,
-                  "A3B7B3CC-C24E-4229-904B-E18DB8B91F5D" : null,
-                  "AD5C8BFA-FCA0-4530-8797-62910B258D9A" : null,
-                  "B91C7CA3-4AB1-4253-9A84-07383168A8A8" : null,
-                  "D91D48C4-EBF9-4FCD-BD8D-B3746A49E194" : {
+                  "659C6E5B-DFF8-410D-B8CC-2EB01CA48D64" : {
                     "overrides" : {
                       "arguments" : [
                         [
                           "item",
                           {
                             "typeName" : "String",
-                            "value" : "Drum Kit"
+                            "value" : "Notepad"
                           }
                         ],
                         [
@@ -57,7 +53,7 @@
                                 "RuntimeIdentifier",
                                 {
                                   "typeName" : "UUID",
-                                  "value" : "1845C161-06A7-4D5C-924B-39C16C5E187D"
+                                  "value" : "EB507CB9-3E33-40C4-830C-46B27CBB02BF"
                                 }
                               ]
                             ]
@@ -65,7 +61,7 @@
                         }
                       },
                       "factory" : {
-                        "identifier" : "com.apple.rc.af.DrumKit.34073786-6811-4fe2-ad62-923f6d7c7012",
+                        "identifier" : "com.apple.rc.af.Notepad.dcc9a6f5-091b-4ce8-8d13-2533477b4eec",
                         "version" : "1.0"
                       },
                       "runtimeAttributes" : [
@@ -73,7 +69,7 @@
                           "RuntimeIdentifier",
                           {
                             "typeName" : "UUID",
-                            "value" : "B7C3D9A1-40B9-4AE3-A9D3-959C4A935E13"
+                            "value" : "DF47D93A-0D43-4123-8A71-70F41B175A88"
                           }
                         ]
                       ]
@@ -98,7 +94,12 @@
                         1
                       ]
                     }
-                  }
+                  },
+                  "08025B39-867E-4ECB-ADE2-1093A885661F" : null,
+                  "A3B7B3CC-C24E-4229-904B-E18DB8B91F5D" : null,
+                  "AD5C8BFA-FCA0-4530-8797-62910B258D9A" : null,
+                  "B91C7CA3-4AB1-4253-9A84-07383168A8A8" : null,
+                  "D91D48C4-EBF9-4FCD-BD8D-B3746A49E194" : null
                 },
                 "factory" : null,
                 "runtimeAttributes" : [
